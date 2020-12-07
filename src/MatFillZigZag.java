@@ -15,7 +15,9 @@ public class MatFillZigZag {
             for (int i = 0; i < A.length;i++){
                 A[i]= rnd.nextInt(n*m);
             }
+            // sorting using quick sort algorithm
             quickSort(A, 0, A.length-1);
+            // recurrent filling the matrix
             recFill(A,0, 0, 0);
         }
     }
@@ -24,14 +26,14 @@ public class MatFillZigZag {
         int j_right;
         int i_bot;
         if (iteration > m + n - 1) {
-            for (int row = 0; row < mat.length; row++) {
-                for (int col = 0; col < mat[row].length; col++) {
-                    System.out.printf("%d   ", mat[row][col]);
+            for (int[] ints : mat) {
+                for (int anInt : ints) {
+                    System.out.printf("%d   ", anInt);
                 }
                 System.out.print("\n");
             }
         } else {
-
+            // iteration represents a number of a diagonal beginning with 0
             if (iteration > n - 1) {
                 i_top++;
                 i_bot = Math.min(iteration, m - 1);
@@ -40,7 +42,8 @@ public class MatFillZigZag {
                 j_left++;
                 j_right = Math.min(iteration, n - 1);
             } else j_right = Math.min(iteration, n - 1);
-
+            // checking if we on odd or even diagonal. If even then we start from most bottom left element and
+            // gradually raising to the top most right. Else do the opposite direction
             if (iteration % 2 == 0) {
                 for (int i = i_bot, j = j_left; i >= i_top && j <= j_right; i--, j++) {
                     mat[i][j] = B[iter];
@@ -86,5 +89,6 @@ public class MatFillZigZag {
         swap(A,low,border-1);
         return border-1;
      }
+     
 }
 
