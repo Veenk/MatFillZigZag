@@ -26,9 +26,9 @@ public class MatFillZigZag {
         int j_right;
         int i_bot;
         if (iteration > m + n - 1) {
-            for (int[] ints : mat) {
-                for (int anInt : ints) {
-                    System.out.printf("%d   ", anInt);
+            for (int[] rows : mat) {
+                for (int val : rows) {
+                    System.out.printf("%d   ", val);
                 }
                 System.out.print("\n");
             }
