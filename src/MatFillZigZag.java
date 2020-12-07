@@ -19,7 +19,7 @@ public class MatFillZigZag {
             quickSort(A, 0, A.length-1);
             // recurrent filling the matrix
             recFill(A,0, 0, 0);
-        }
+        }else System.out.print("Given arguments contain negatives or zeros. Please provide positive dimensions");
     }
 
     private void recFill(int[] B, int i_top, int j_left, int iteration) {
