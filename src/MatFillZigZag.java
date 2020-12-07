@@ -33,7 +33,7 @@ public class MatFillZigZag {
                 System.out.print("\n");
             }
         } else {
-            // iteration represents a number of a diagonal beginning with 0
+            // iteration represents a current number of a diagonal beginning with 0
             if (iteration > n - 1) {
                 i_top++;
                 i_bot = Math.min(iteration, m - 1);
@@ -42,8 +42,8 @@ public class MatFillZigZag {
                 j_left++;
                 j_right = Math.min(iteration, n - 1);
             } else j_right = Math.min(iteration, n - 1);
-            // checking if we on odd or even diagonal. If even then we start from most bottom left element and
-            // gradually raising to the top most right. Else do the opposite direction
+            // checking if we're on an odd or even diagonal. If even, then we start from most bottom left element and
+            // gradually raising up to the top most right. Else do the opposite direction
             if (iteration % 2 == 0) {
                 for (int i = i_bot, j = j_left; i >= i_top && j <= j_right; i--, j++) {
                     mat[i][j] = B[iter];
@@ -55,12 +55,12 @@ public class MatFillZigZag {
                     iter++;
                 }
             }
-
             iteration++;
             recFill(B, i_top, j_left, iteration);
         }
     }
-
+    
+    // everything below belongs to quicksort algorithm
     private void quickSort(int[] A,int low, int high){
          if (low <high+1){
              int p = partition(A, low, high);
